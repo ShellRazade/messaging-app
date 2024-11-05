@@ -1,0 +1,11 @@
+.img {
+    background-image: url(./assets/images/bg-img.jpg);
+    background-attachment: fixed;
+    height: 38rem;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+
+    background-color: rgba(0,0,0,0.5);
+    
+}
