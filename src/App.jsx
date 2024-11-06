@@ -6,6 +6,7 @@ import UserDashboardLayout from './layouts/UserDashboardLayout';
 import UserRegister from './pages/registerForm.jsx/UserRegister';
 
 import Chats from './pages/dashboard/Chats';
+import Settings from './pages/dashboard/Settings';
 
 function App() {
 
@@ -27,10 +28,10 @@ function App() {
           index: true,
           element: <Chats />
         },
-        // {
-        //   path: '',
-        //   element:</>
-        // }
+        {
+          path: 'settings',
+          element:<Settings/>
+        }
 
   ]
     }

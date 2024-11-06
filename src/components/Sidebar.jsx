@@ -1,26 +1,56 @@
 
 // import { Link } from "react-router-dom";
+import { IoHomeOutline } from "react-icons/io5";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { LuCalendarCheck2 } from "react-icons/lu";
+import { IoIosAddCircleOutline } from "react-icons/io";
+import { HiOutlineCog6Tooth } from "react-icons/hi2";
+// import { Link } from "react-router-dom";
+import { useState } from "react";
+
 
 const Sidebar = () => {
+  // State to manage the collapsed state
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  // Function to toggle collapse state
+  const toggleSidebar = () => setIsCollapsed(!isCollapsed);
+
   return (
     <div> {/* Sidebar */}
 
-      <div className=" fixed flex flex-col h-screen w-1/4 bg-slate-50 border shadow-lg rounded-b-3xl ">
-        <div className="flex gap-3 py-5">
-          <GiHamburgerMenu className="text-3xl" />
+      <div
+        className={`fixed flex flex-col h-screen ${isCollapsed ? 'w-16' : 'w-1/4'
+          } bg-slate-50 border transition-all duration-300`}
+      >
+        {/* Toggle Button */}
+        <div className="flex gap-3 py-5 ">
+          <button onClick={toggleSidebar}>
+            <GiHamburgerMenu className="text-3xl" />
+          </button>
+       
         </div>
 
-        <div>
-          <div className="border shadow-md rounded-lg h-14 w-80 p-2 mx-2 pb-2">
+        {/* User Info (Hidden when collapsed) */}
+        {!isCollapsed && (
+          <div className=" h-14 w-22 p-2 mx-2 pb-2 ">
+            {/* <div>
             <span className="rounded-full w-5 h-10 bg-blue-100 m-2 p-2">avatar</span>
             <span>Username</span>
+            </div> */}
+
+            <span className="flex text-xl gap-3"><IoHomeOutline className="text-2xl"/> Home</span>
+            <span className="flex text-xl gap-3"><LuCalendarCheck2 /> Calender</span>
+            <span className="flex text-xl gap-3"><IoIosAddCircleOutline /> Add</span>
+
+            <span><HiOutlineCog6Tooth />Settings</span>
+
           </div>
-        </div>
+        )}
       </div>
 
     </div>
-  )
+  );
 }
 
 export default Sidebar;
