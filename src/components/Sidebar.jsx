@@ -20,15 +20,15 @@ const Sidebar = () => {
     <div> {/* Sidebar */}
 
       <div
-        className={`fixed flex flex-col h-screen ${isCollapsed ? 'w-16' : 'w-1/4'
+        className={`fixed flex flex-col h-screen ${isCollapsed ? 'w-16' : 'w-1/5'
           } bg-slate-50 border transition-all duration-300`}
       >
         {/* Toggle Button */}
         <div className="flex gap-3 py-5 ">
           <button onClick={toggleSidebar}>
-            <GiHamburgerMenu className="text-3xl" />
+            <GiHamburgerMenu className="text-3xl ml-2" />
           </button>
-       
+
         </div>
 
         {/* User Info (Hidden when collapsed) */}
@@ -39,14 +39,16 @@ const Sidebar = () => {
             <span>Username</span>
             </div> */}
 
-            <span className="flex text-xl gap-3"><IoHomeOutline className="text-2xl"/> Home</span>
-            <span className="flex text-xl gap-3"><LuCalendarCheck2 /> Calender</span>
-            <span className="flex text-xl gap-3"><IoIosAddCircleOutline /> Add</span>
+            <span className="flex text-xl gap-3"><IoHomeOutline className="text-2xl" /> Home</span>
+            <span className="flex text-xl gap-3"><LuCalendarCheck2 className="text-2xl" /> Calender</span>
+            {/* <span className="flex text-xl gap-3"><IoIosAddCircleOutline className="text-2xl"/> Add</span> */}
+            <span className="flex text-xl gap-3 mt-96 "><HiOutlineCog6Tooth className="text-2xl" />Settings</span>
 
-            <span><HiOutlineCog6Tooth />Settings</span>
 
           </div>
         )}
+
+        
       </div>
 
     </div>
