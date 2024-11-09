@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import register1 from '../../assets/images/register1.png'
 import React, { useState } from 'react'
 import { apiSignup } from '../../services/auth'
+import { Link } from 'react-router-dom'
 
 const UserRegister = () => {
   const [loading, setLoading] = useState(false)
@@ -42,8 +43,13 @@ const UserRegister = () => {
   return (
     <div>
       {/* UserRegister */}
-      <div>
-        <div className='flex mt-10'>
+
+      <p className='text-4xl text-center mt-10'>Register</p>
+
+      <div className='md:flex min-h-screen justify-center items-center align-middle md:mx-52'>
+
+        <div className='flex '>
+
           <form onSubmit={handleSubmit} className='border shadow-lg rounded-lg h-5/6 max-w-md mx-auto p-5'>
 
             <div className='flex gap-2 pb-5'>
@@ -66,7 +72,12 @@ const UserRegister = () => {
               <input type="password" name='password' placeholder='Password' required />
             </div>
 
-            <button type='submit' className='border shadow-md w-max p-2'>{loading? "Loading..." : "Register"}</button>
+            <button type='submit' className='border rounded-md shadow-md w-max p-2'>{loading ? "Loading..." : "Register"}</button>
+
+            <div className='text-center mt-3'>
+              <p>Already have an account? Then</p>
+              <Link to='/' className='text-blue-600'>Login</Link>
+            </div>
           </form>
 
           <div className='max-w-md mx-auto'>
