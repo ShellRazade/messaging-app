@@ -1,10 +1,29 @@
 
+import { useNavigate } from 'react-router-dom';
 import login from '../../assets/images/login.png'
+import { apiLogin } from '../../services/auth';
 
 
 
 
 const UserLogin = () => {
+
+const navigate = useNavigate()
+const handleSubmit = async (event) =>{
+  event.preventDefault();
+  //logic to handle submit goes here
+  const formData = new FormData(event.target);
+  const email = formData.get('email');
+  const password = formData.get('password');
+  console.log('email',email, 'password',password);
+  const response =await apiLogin({email,password})
+  if (response.data === 200) {
+    localStorage.setItem('token', response.data.accessToken);
+  }
+  navigate('/dashboard')
+}
+
+
   return (
     <div className='md:flex min-h-screen justify-center items-center align-middle md:mx-80'>
       {/* UserLogin */}

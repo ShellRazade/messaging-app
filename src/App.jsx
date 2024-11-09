@@ -29,17 +29,21 @@ function App() {
           element: <Chats />
         },
         {
+          path: 'chats',
+          element: <Chats />
+        },
+        {
           path: 'settings',
-          element:<Settings/>
+          element: <Settings />
         }
 
-  ]
+      ]
     }
 
 
   ])
 
-return <RouterProvider router={router} />;
+  return <RouterProvider router={router} />;
 };
 
 export default App;

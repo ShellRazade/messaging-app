@@ -5,7 +5,7 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { LuCalendarCheck2 } from "react-icons/lu";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import { HiOutlineCog6Tooth } from "react-icons/hi2";
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useState } from "react";
 
 
@@ -39,10 +39,10 @@ const Sidebar = () => {
             <span>Username</span>
             </div> */}
 
-            <span className="flex text-xl gap-3"><IoHomeOutline className="text-2xl" /> Home</span>
+            <Link to="chats"><span className="flex text-xl gap-3"><IoHomeOutline className="text-2xl" /> Home</span></Link>
             <span className="flex text-xl gap-3"><LuCalendarCheck2 className="text-2xl" /> Calender</span>
             {/* <span className="flex text-xl gap-3"><IoIosAddCircleOutline className="text-2xl"/> Add</span> */}
-            <span className="flex text-xl gap-3 mt-96 "><HiOutlineCog6Tooth className="text-2xl" />Settings</span>
+            <Link to="settings"><span className="flex text-xl gap-3 mt-96 "><HiOutlineCog6Tooth className="text-2xl" />Settings</span></Link>
 
 
           </div>
