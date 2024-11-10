@@ -41,7 +41,8 @@ const Sidebar = () => {
 
             <Link to="chats"><span className="flex text-xl gap-3"><IoHomeOutline className="text-2xl" /> Home</span></Link>
             <span className="flex text-xl gap-3"><LuCalendarCheck2 className="text-2xl" /> Calender</span>
-            {/* <span className="flex text-xl gap-3"><IoIosAddCircleOutline className="text-2xl"/> Add</span> */}
+            <Link to='add'><span className="flex text-xl gap-3"><IoIosAddCircleOutline className="text-2xl"/> Add</span></Link>
+            {/* <span>See All Rooms</span> */}
             <Link to="settings"><span className="flex text-xl gap-3 mt-96 "><HiOutlineCog6Tooth className="text-2xl" />Settings</span></Link>
 
 

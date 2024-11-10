@@ -7,6 +7,7 @@ import UserRegister from './pages/registerForm.jsx/UserRegister';
 
 import Chats from './pages/dashboard/Chats';
 import Settings from './pages/dashboard/Settings';
+import Addroom from './pages/dashboard/Addroom';
 
 function App() {
 
@@ -35,8 +36,11 @@ function App() {
         {
           path: 'settings',
           element: <Settings />
+        },
+        {
+          path: 'add',
+          element: <Addroom />
         }
-
       ]
     }
 
