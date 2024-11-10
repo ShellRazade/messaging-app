@@ -2,13 +2,14 @@
 
 const Addroom = () => {
     return (
-        <div>Addroom
+        <div >
+            {/* Addroom */}
             <div className='pl-80 pt-20'>
                 <div className='border shadow rounded h-4/6 w-3/5 p-6'>
                     <p className="text-2xl font-semibold pb-5">Add</p>
 
                     <div>
-                        <form action="" className="justify-center flex flex-col">
+                        <form action="" className="justify-center flex flex-col ">
                             <label htmlFor="" className="text-xl">Name</label>
                             <input type="text" name="name" className="border shadow p-2 my-2 rounded-md" />
                             <label htmlFor="" className="text-xl">Description</label>
