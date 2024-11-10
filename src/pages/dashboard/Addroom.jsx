@@ -5,17 +5,17 @@ const Addroom = () => {
         <div>Addroom
             <div className='pl-80 pt-20'>
                 <div className='border shadow rounded h-4/6 w-3/5 p-6'>
-                    <p>Add</p>
+                    <p className="text-2xl font-semibold pb-5">Add</p>
 
                     <div>
-                        <form action="">
-                            <label htmlFor="">Name</label>
-                            <input type="text" />
-                            <label htmlFor="">Description</label>
-                            <input type="text" />
-                            <div>
-                                <button>Cancel</button>
-                                <button>Create</button>
+                        <form action="" className="justify-center flex flex-col">
+                            <label htmlFor="" className="text-xl">Name</label>
+                            <input type="text" name="name" className="border shadow p-2 my-2 rounded-md" />
+                            <label htmlFor="" className="text-xl">Description</label>
+                            <input type="text" name="description" className="border shadow p-2 my-2 rounded-md" />
+                            <div className="flex ">
+                                <button className="border shadow w-fit h-fit p-2 m-2 rounded-md">Cancel</button>
+                                <button className="border shadow w-fit h-fit p-2 m-2 rounded-md">Create</button>
                             </div>
                         </form>
                     </div>

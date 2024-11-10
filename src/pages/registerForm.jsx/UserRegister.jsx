@@ -15,6 +15,7 @@ const UserRegister = () => {
       setLoading(true)
       const formData = new FormData(event.target) //grabs data from the form
 
+      const userName = formData.get("userName")
       const firstName = formData.get("firstName")
       const lastName = formData.get("lastName")
       const email = formData.get("email")
@@ -22,7 +23,7 @@ const UserRegister = () => {
       console.log('first name', firstName)
 
 
-      const payload = { firstName, lastName, email, password }
+      const payload = {userName, firstName, lastName, email, password }
       const response = await apiSignup(payload)
       console.log(response.data)
 
@@ -51,6 +52,10 @@ const UserRegister = () => {
         <div className='flex '>
 
           <form onSubmit={handleSubmit} className='border shadow-lg rounded-lg h-5/6 max-w-md mx-auto p-5'>
+          <div className='flex gap-2 pb-5'>
+              <label htmlFor="" className='text-xl font-semibold'>User Name</label>
+              <input type="text" name='userName' placeholder='User Name' required />
+            </div>
 
             <div className='flex gap-2 pb-5'>
               <label htmlFor="" className='text-xl font-semibold'>First Name</label>
