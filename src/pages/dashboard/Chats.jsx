@@ -40,7 +40,7 @@ const Chats = () => {
             {
               rooms.map((room, index) => {
                 // console.log(``)
-                return <Link>
+                return <Link to='/chatroom'>
                   <div className="border shadow rounded-lg h-80 w-3/12 bg-white">
                     <p>Title:{room.title}</p>
                     <p>Description:{room.description}</p>
