@@ -19,7 +19,9 @@ const UserLogin = () => {
     const password = formData.get('password');
     console.log('email', email, 'password', password);
     const response = await apiLogin({ email, password })
-    if (response.data === 200) {
+    console.log("response--->", response.data)
+   
+    if (response.status === 200) {
       localStorage.setItem('token', response.data.accessToken);
     }
     navigate('/dashboard')

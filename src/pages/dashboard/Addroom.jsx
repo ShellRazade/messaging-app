@@ -4,7 +4,7 @@ const Addroom = () => {
     return (
         <div >
             {/* Addroom */}
-            <div className='pl-80 pt-20'>
+            <div className='img pl-80 pt-20'>
                 <div className='border shadow rounded h-4/6 w-3/5 p-6'>
                     <p className="text-2xl font-semibold pb-5">Add</p>
 

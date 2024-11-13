@@ -36,17 +36,17 @@ const Chats = () => {
         {/* Fetch Rooms from API */}
         <div className="overflow-y-scroll max-h-96 p-5"> {/* Scrollable container */}
 
-          <div className=" grid grid-cols-3 gap-1 p-3">
+          <div className=" grid grid-cols-3 gap-1 p-3 ">
             {
               rooms.map((room, index) => {
                 // console.log(``)
-                return <Link to='/chatroom'>
-                  <div className="border shadow rounded-lg h-80 w-3/12 bg-white">
-                    <p>Title:{room.title}</p>
+                return <Link to='/dashboard/chatroom'>
+                  <div className="border shadow rounded-lg h-80 w-11/12 bg-white">
+                    <p>RoomName:{room.roomName}</p>
                     <p>Description:{room.description}</p>
                     <p>Created At:{room.createdAt}</p>
                     <p>Updated At:{room.UpdatedAt}</p>
-                    <span><AiOutlineDelete /></span>
+                    <span className="text-red-400"><AiOutlineDelete /></span>
                   </div>
                 </Link>
               })
