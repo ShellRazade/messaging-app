@@ -5,7 +5,6 @@
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment:fixed;
-
     background-color: rgba(0, 0, 0, 0.644);  
 }
 
@@ -33,6 +32,7 @@
   margin: 5px 0 22px 0;
   border: none;
   background: #f1f1f1;
+  
 }
 
 /* When the inputs get focus, do something */

@@ -1,8 +1,9 @@
 // import { GrSend } from "react-icons/gr";
-import { AiOutlineDelete } from "react-icons/ai";
+// import { AiOutlineDelete } from "react-icons/ai";
 import { useEffect, useState } from "react";
 import { apiGetRooms } from "../../services/chat";
 import { Link } from "react-router-dom";
+import register2 from '../../assets/images/register2.png'
 
 const Chats = () => {
 
@@ -17,7 +18,7 @@ const Chats = () => {
     getRooms();
   }, []);
 
-  
+
 
   return (
     <div className='img '>
@@ -29,33 +30,33 @@ const Chats = () => {
          <button className="text-4xl"> <GrSend /></button>
         </div>
       </div> */}
-      <div className="pl-72 pt-20">
-        <div className="border shadow-sm rounded-lg bg-white h-40 w-8/12 mb-10 p-3 ">
-          <p className="text-center pt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, ullam labore magnam dignissimos voluptate odio numquam repellat fugit expedita unde quidem omnis eaque autem alias, suscipit, libero reiciendis magni! Possimus!</p>
-        </div>
-        {/* Fetch Rooms from API */}
-        <div className="overflow-y-scroll max-h-96 p-5"> {/* Scrollable container */}
+      <div className="px-4 md:pl-72 pt-10 md:pt-20">
+  <div className="border shadow-sm rounded-lg bg-white h-auto md:h-40 w-full md:w-8/12 mb-6 md:mb-10 p-3">
+    <p className="text-center pt-2 text-sm md:text-base">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, ullam labore magnam dignissimos voluptate odio numquam repellat fugit expedita unde quidem omnis eaque autem alias, suscipit, libero reiciendis magni! Possimus!
+    </p>
+  </div>
 
-          <div className=" grid grid-cols-3 gap-1 p-3 ">
-            {
-              rooms.map((room, index) => {
-                // console.log(``)
-                return <Link key={index} to='/dashboard/chatroom'>
-                  <div className="border shadow rounded-lg h-80 w-11/12 bg-white">
-
-                    <p className="pt-5">RoomName:{room.roomName}</p>
-                    <p>Description:{room.description}</p>
-                    <p>Created At:{room.createdAt}</p>
-                    <p>Updated At:{room.UpdatedAt}</p>
-                    <span className="text-red-400"><AiOutlineDelete /></span>
-                  </div>
-                </Link>
-              })
-            }
-          </div>
-
-        </div>
-      </div>
+  {/* Fetch Rooms from API */}
+  <div className="overflow-y-scroll max-h-96 p-3 md:p-5">
+    {/* Scrollable container */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+      {rooms.map((room, index) => {
+        return (
+          <Link key={index} to="/dashboard/chatroom">
+            <div className="border shadow rounded-lg bg-white p-4 md:p-5">
+              <img src={register2} alt="" className="w-full h-auto rounded" />
+              <p className="pt-3 text-lg md:text-xl text-center">{room.roomName}</p>
+              <p className="pt-2 text-sm md:text-base text-center">Description: {room.description}</p>
+              <p className="pt-2 text-xs md:text-sm">Created At: {room.createdAt}</p>
+              <p className="pt-2 text-xs md:text-sm">Updated At: {room.UpdatedAt}</p>
+            </div>
+          </Link>
+        );
+      })}
+    </div>
+  </div>
+</div>
     </div>
   )
 }

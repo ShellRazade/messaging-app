@@ -9,6 +9,7 @@ import Chats from './pages/dashboard/Chats';
 import Settings from './pages/dashboard/Settings';
 import Addroom from './pages/dashboard/Addroom';
 import Chatroom from './pages/dashboard/Chatroom';
+import Userpop from './pages/dashboard/Userpop';
 
 function App() {
 
@@ -45,7 +46,11 @@ function App() {
         {
           path: 'chatroom',
           element: <Chatroom/>
-        }
+        },
+        {
+          path: 'pop',
+          element: <Userpop/>
+        },
       ]
     }
 
