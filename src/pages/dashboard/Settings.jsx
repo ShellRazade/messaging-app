@@ -11,8 +11,8 @@ const Settings = () => {
         <div>
             {/* Settings */}
 
-            <div className='img p-5  pl-80 pt-20'>
-                <div className='border shadow rounded h-4/6 w-3/5 p-6'>
+            <div className='img p-5  pl-80 pt-20 '>
+                <div className='border shadow rounded h-11/12 w-3/5 p-6 backdrop-blur-sm '>
                     <p className='text-3xl pb-5'>Profile</p>
                     <span className='border-2 shadow-sm rounded-full w-13 h-15 mb-4 p-2'>avtr</span>
                     <p className='text-xl pt-3'>John Doe</p>

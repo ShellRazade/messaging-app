@@ -82,7 +82,7 @@ const UserLogin = () => {
 
               <div className='flex gap-2 pb-8'>
                 <label htmlFor="" className='text-xl font-semibold '>Password</label>
-                <input type="text" name='password' id='password' placeholder='Password' className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white" />
+                <input type="password" name='password' id='password' placeholder='Password' className="w-full p-2 border border-gray-300 dark:border-gray-600 rounded-md dark:bg-gray-700 dark:text-white" />
               </div>
 
               <button className='border shadow-md w-max p-2 mb-3 rounded-md hover:bg-slate-100 dark:bg-gray-700 dark:hover:bg-gray-600 dark:text-white'>Login</button>

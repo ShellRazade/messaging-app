@@ -30,7 +30,7 @@ const Chats = () => {
         </div>
       </div> */}
       <div className="pl-72 pt-20">
-        <div className="border shadow-sm rounded-lg bg-white h-40 w-8/12 mb-3 p-3">
+        <div className="border shadow-sm rounded-lg bg-white h-40 w-8/12 mb-10 p-3 ">
           <p className="text-center pt-2">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, ullam labore magnam dignissimos voluptate odio numquam repellat fugit expedita unde quidem omnis eaque autem alias, suscipit, libero reiciendis magni! Possimus!</p>
         </div>
         {/* Fetch Rooms from API */}
@@ -40,9 +40,10 @@ const Chats = () => {
             {
               rooms.map((room, index) => {
                 // console.log(``)
-                return <Link to='/dashboard/chatroom'>
+                return <Link key={index} to='/dashboard/chatroom'>
                   <div className="border shadow rounded-lg h-80 w-11/12 bg-white">
-                    <p>RoomName:{room.roomName}</p>
+
+                    <p className="pt-5">RoomName:{room.roomName}</p>
                     <p>Description:{room.description}</p>
                     <p>Created At:{room.createdAt}</p>
                     <p>Updated At:{room.UpdatedAt}</p>
