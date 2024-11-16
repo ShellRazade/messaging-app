@@ -2,6 +2,7 @@ import { LuSendHorizonal } from "react-icons/lu";
 import Users from '../../components/Users';
 import { useSearchParams } from "react-router-dom";
 import { apiGetMessage, apiPostChats } from "../../services/chat";
+import { useEffect, useState } from "react";
 
 
 
@@ -24,10 +25,10 @@ const Chatroom = () => {
       console.log(error)
     }
   }
-//Get messages to the API
+  //Get messages to the API
   const [message, setMessage] = useState([]);
-  useEffect(() =>{
-    const fetchMessage = async() =>{
+  useEffect(() => {
+    const fetchMessage = async () => {
       const response = await apiGetMessage();
       setMessage(response.data)
       console.log(message)
@@ -39,34 +40,35 @@ const Chatroom = () => {
     <div>
       {/* Chatroom */}
 
-      <div className='pl-80 pt-20 pb-14'>
-        <div className='border shadow rounded h-4/6 w-4/5 p-6'>
-          <img src="" alt="" />
-          <p>{searchParams.get("room")}</p>
+
+
+      <div className='px-4 md:pl-80 pt-10 md:pt-20 pb-10'>
+        <div className='border shadow rounded h-auto md:h-4/6 w-full md:w-4/5 p-4 md:p-6'>
+          <img src="" alt="" className="w-full h-auto rounded mb-4" />
+          <p className="text-center">{searchParams.get("room")}</p>
         </div>
 
-        <div className='flex gap-12'>
-          <div className='border shadow rounded h-4/6 w-3/5 p-10 mt-6'>
-            <div>
-              <div className='flex gap-3'>
-                <span className='w-15 h-15 border shadow-sm rounded-full p-4'>avtr</span>
-                <p className='mt-4'> Username</p>
-              </div>
-              <p className='mt-4'>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis nemo at quae perferendis quidem non ab, ad earum beatae placeat sed velit asperiores quia nobis. Aspernatur vero enim ea! Deleniti.</p>
+        <div className='flex flex-col md:flex-row gap-6 md:gap-12 mt-6'>
+          <div className='border shadow rounded h-auto md:h-4/6 w-full md:w-3/5 p-5 md:p-10'>
+            <div className="flex items-center gap-3">
+              <span className='w-12 h-12 border shadow-sm rounded-full p-4'>avtr</span>
+              <p className='mt-2 md:mt-4 text-sm md:text-base'>Username</p>
             </div>
+            <p className='mt-4 text-sm md:text-base'>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Omnis nemo at quae perferendis quidem non ab, ad earum beatae placeat sed velit asperiores quia nobis. Aspernatur vero enim ea! Deleniti.
+            </p>
 
-            <form onSubmit={handleSubmit} className="flex gap-2">
-              <input type="text" name='content' placeholder='Comment here' className='p-3 bg-slate-50 rounded border border-gray-300 mt-3 w-4/5' />
+            <form onSubmit={handleSubmit} className="flex gap-2 mt-3">
+              <input type="text" name='content' placeholder='Comment here' className='p-3 bg-slate-50 rounded border border-gray-300 w-full md:w-4/5' />
               <button type="submit" className="text-2xl"><LuSendHorizonal /></button>
             </form>
           </div>
 
-          <Users />
+          <div className="w-full md:w-1/5">
+            <Users />
+          </div>
         </div>
-
       </div>
-
-
 
 
 
