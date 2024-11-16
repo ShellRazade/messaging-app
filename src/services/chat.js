@@ -10,7 +10,7 @@ export const apiSearch = async(filter) => await apiClient.get(`/rooms?filter=${f
 export const apiPostChats = async(payload) => apiClient.post('/messages', payload);
 
 //to get chats in chatrooms
-
+export const apiGetMessage = async() => apiClient.get('/messages');
 
 //update user details
-export const apiUpdateUser = async (payload) => apiClient.patch('/users/update/id')
+export const apiUpdateUser = async (payload) => apiClient.patch('/users/update/id');

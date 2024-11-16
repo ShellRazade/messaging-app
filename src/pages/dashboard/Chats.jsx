@@ -43,12 +43,12 @@ const Chats = () => {
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       {rooms.map((room, index) => {
         return (
-          <Link key={index} to="/dashboard/chatroom">
+          <Link key={index} to={`/dashboard/chatroom?room=${room.id}`}>
             <div className="border shadow rounded-lg bg-white p-4 md:p-5">
               <img src={register2} alt="" className="w-full h-auto rounded" />
               <p className="pt-3 text-lg md:text-xl text-center">{room.roomName}</p>
               <p className="pt-2 text-sm md:text-base text-center">Description: {room.description}</p>
-              <p className="pt-2 text-xs md:text-sm">Created At: {room.createdAt}</p>
+              <p className="pt-4 text-xs md:text-sm">Created At: {room.createdAt}</p>
               <p className="pt-2 text-xs md:text-sm">Updated At: {room.UpdatedAt}</p>
             </div>
           </Link>
