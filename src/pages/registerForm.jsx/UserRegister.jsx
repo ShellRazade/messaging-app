@@ -53,31 +53,31 @@ const UserRegister = () => {
 
           <form onSubmit={handleSubmit} className='border shadow-lg rounded-lg h-5/6 max-w-md mx-auto p-5'>
           <div className='flex gap-2 pb-5'>
-              <label htmlFor="" className='text-xl font-semibold'>User Name</label>
-              <input type="text" name='userName' placeholder='User Name' required />
+              <label htmlFor="" className='text-xl font-semibold '>User Name</label>
+              <input type="text" name='userName' placeholder='User Name' className='border border-gray-300 rounded-md p-3' required />
             </div>
 
             <div className='flex gap-2 pb-5'>
               <label htmlFor="" className='text-xl font-semibold'>First Name</label>
-              <input type="text" name='firstName' placeholder='First Name' required />
+              <input type="text" name='firstName' placeholder='First Name' className='border border-gray-300 rounded-md p-3' required />
             </div>
 
             <div className='flex gap-2 pb-5'>
               <label htmlFor="" className='text-xl font-semibold'>Last Name</label>
-              <input type="text" name='lastName' placeholder='Last Name' required />
+              <input type="text" name='lastName' placeholder='Last Name' className='border border-gray-300 rounded-md p-3' required />
             </div>
 
             <div className='flex gap-2 pb-5'>
               <label htmlFor="" className='text-xl font-semibold'>Email</label>
-              <input type="email" name='email' placeholder='Email' required />
+              <input type="email" name='email' placeholder='Email' className='border border-gray-300 rounded-md p-3' required />
             </div>
 
             <div className='flex gap-2 pb-5'>
               <label htmlFor="" className='text-xl font-semibold'>Password</label>
-              <input type="password" name='password' placeholder='Password' required />
+              <input type="password" name='password' placeholder='Password' className='border border-gray-300 rounded-md p-3' required />
             </div>
 
-            <button type='submit' className='border rounded-md shadow-md w-max p-2'>{loading ? "Loading..." : "Register"}</button>
+            <button type='submit' className='border rounded-md hover:bg-slate-100 shadow-md w-max p-2'>{loading ? "Loading..." : "Register"}</button>
 
             <div className='text-center mt-3'>
               <p>Already have an account? Then</p>

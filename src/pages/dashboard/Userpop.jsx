@@ -16,11 +16,13 @@ const Userpop = () => {
                             <a href="/integrations">Integrations</a>
                         </div> */}
 
-                        <div className='h-80 w-56 p-5 pb-4 '>
-                            <span className='w-28 h-28 p-5 rounded-full border-2 bg-white pt-3'>avatar</span>
+                        <div className='h-auto w-full sm:w-56 p-4 sm:p-5 pb-4'>
+                            <span className='w-20 h-20 p-2 rounded-full border-2 bg-white block text-center mb-4'>
+                                avatar
+                            </span>
 
-                            <p className='text-xl py-5'>Name</p>
-                            <p className=''>info@gmail.com</p>
+                            <p className='text-lg sm:text-xl py-3 sm:py-5'>User name</p>
+                            <p className='text-sm sm:text-base'>info@gmail.com</p>
                         </div>
 
                         <img src="/solutions.jpg" alt="" />

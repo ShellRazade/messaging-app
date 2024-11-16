@@ -4,21 +4,21 @@ import { Link, useParams } from 'react-router-dom';
 const Settings = () => {
 
     //Update Details
-    // const handleSubmit = async (e) => {
-    //     event.preventDefault();
-    //     //logic to handle login goes here
-    //     const formData = new FormData(event.target);
-    //     const userName = formData.get('userName');
-    //     const firstName = formData.get('firstName');
-    //     const lastName = formData.get('lastName');
-    //     console.log('userName', userName. 'firstName', firstname, 'lastName', lastName);
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        //logic to handle login goes here
+        const formData = new FormData(event.target);
+        const userName = formData.get('userName');
+        const firstName = formData.get('firstName');
+        const lastName = formData.get('lastName');
+        console.log('userName', userName, 'firstName', firstName, 'lastName', lastName);
         
-    //     const response = await apiUpdateUser({ userName, firstName, lastName });
+        const response = await apiUpdateUser({ userName, firstName, lastName });
 
-    //     if (response.status === 200){
-    //         localStorage.setItem('token', response.data.accessToken)
-    //     }
-    // };
+        if (response.status === 200){
+            localStorage.setItem('token', response.data.accessToken)
+        }
+    };
 
     return (
         <div>
@@ -51,7 +51,7 @@ const Settings = () => {
                             {/* <label htmlFor="email" className="block text-sm font-medium">Email</label>
                             <input type="email" name='email' placeholder='Email' className="w-full mb-3 p-2 border rounded" /> */}
 
-                            <button className='w-full py-2 mt-3 bg-blue-500 text-white rounded hover:bg-blue-600'>Submit</button>
+                            <button type='submit' className='w-full py-2 mt-3 bg-blue-500 text-white rounded hover:bg-blue-600'>Submit</button>
                         </form>
                     </div>
                 </div>
