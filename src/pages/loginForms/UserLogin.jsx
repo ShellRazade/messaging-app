@@ -5,6 +5,7 @@ import { apiLogin } from '../../services/auth';
 import { Link } from 'react-router-dom';
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 import { useEffect, useState } from 'react';
+import Swal from 'sweetalert2';
 
 
 const UserLogin = () => {
@@ -27,7 +28,16 @@ const UserLogin = () => {
     navigate('/dashboard')
   }
 
-
+  const handleClick = () => {
+    if(response.status===200|| response.status===201){
+      Swal.fire({
+        title: "Success!",
+        text: `${respose.data}`,
+        icon: "success"
+      });
+    } 
+   }
+  
 
   return (
 
@@ -61,7 +71,7 @@ const UserLogin = () => {
                   className="w-full p-2 border border-gray-300 rounded-md" />
               </div>
 
-              <button className="border shadow-md w-max p-2 mb-3 rounded-md hover:bg-slate-100">
+              <button onClick={handleClick} className="border shadow-md w-max p-2 mb-3 rounded-md hover:bg-slate-100">
                 Login
               </button>
 

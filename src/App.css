@@ -1,7 +1,7 @@
 .img {
     background-image: url(./assets/images/bg_img.jpg);
     background-position: fixed;
-    /* height: 38rem; */
+    height:150vh;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment:fixed;

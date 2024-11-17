@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+// import { Link, useParams } from 'react-router-dom';
 
 const Settings = () => {
 
@@ -12,10 +12,10 @@ const Settings = () => {
         const firstName = formData.get('firstName');
         const lastName = formData.get('lastName');
         console.log('userName', userName, 'firstName', firstName, 'lastName', lastName);
-        
+
         const response = await apiUpdateUser({ userName, firstName, lastName });
 
-        if (response.status === 200){
+        if (response.status === 200) {
             localStorage.setItem('token', response.data.accessToken)
         }
     };
@@ -35,7 +35,8 @@ const Settings = () => {
 
                     <p className="text-2xl md:text-3xl my-5 text-center">Change Details</p>
                     <div className='form-popup myForm'>
-                        <form className='form-container'>
+
+                        <form onSubmit={handleSubmit} className='form-container'>
                             <label htmlFor="image" className="block text-sm font-medium">Image</label>
                             <input type="file" className="w-full mb-3" />
 
@@ -53,6 +54,7 @@ const Settings = () => {
 
                             <button type='submit' className='w-full py-2 mt-3 bg-blue-500 text-white rounded hover:bg-blue-600'>Submit</button>
                         </form>
+
                     </div>
                 </div>
             </div>

@@ -3,6 +3,8 @@ import register1 from '../../assets/images/register1.png'
 import React, { useState } from 'react'
 import { apiSignup } from '../../services/auth'
 import { Link } from 'react-router-dom'
+import Swal from 'sweetalert2'
+
 
 const UserRegister = () => {
   const [loading, setLoading] = useState(false)
@@ -24,6 +26,7 @@ const UserRegister = () => {
 
 
       const payload = {userName, firstName, lastName, email, password }
+
       const response = await apiSignup(payload)
       console.log(response.data)
 
@@ -36,8 +39,16 @@ const UserRegister = () => {
       setLoading(false)
     }
   }
-
-
+ 
+ const handleClick = () => {
+  // if(response.status===200|| response.status===201){
+    Swal.fire({
+      title: "Success!",
+      text: `${respose.data}`,
+      icon: "success"
+    });
+  // } 
+ }
 
 
 
@@ -77,7 +88,7 @@ const UserRegister = () => {
               <input type="password" name='password' placeholder='Password' className='border border-gray-300 rounded-md p-3' required />
             </div>
 
-            <button type='submit' className='border rounded-md hover:bg-slate-100 shadow-md w-max p-2'>{loading ? "Loading..." : "Register"}</button>
+            <button type='submit' onClick={handleClick} className='border rounded-md hover:bg-slate-100 shadow-md w-max p-2'>{loading ? "Loading..." : "Register"}</button>
 
             <div className='text-center mt-3'>
               <p>Already have an account? Then</p>
