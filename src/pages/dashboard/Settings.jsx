@@ -14,7 +14,7 @@ const Settings = () => {
         console.log('userName', userName, 'firstName', firstName, 'lastName', lastName);
 
         const response = await apiUpdateUser({ userName, firstName, lastName });
-
+        
         if (response.status === 200) {
             localStorage.setItem('token', response.data.accessToken)
         }

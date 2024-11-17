@@ -32,8 +32,8 @@ const Chats = () => {
       </div> */}
       <div className="px-4 md:pl-72 pt-10 md:pt-20">
   <div className="border shadow-sm rounded-lg bg-white h-auto md:h-40 w-full md:w-8/12 mb-6 md:mb-10 p-3">
-    <p className="text-center pt-2 text-sm md:text-base">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, ullam labore magnam dignissimos voluptate odio numquam repellat fugit expedita unde quidem omnis eaque autem alias, suscipit, libero reiciendis magni! Possimus!
+    <p className="text-center pt-2 text-2xl md:text-base">
+      Welcome to ChatApp!
     </p>
   </div>
 
