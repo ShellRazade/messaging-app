@@ -31,14 +31,14 @@ const Chats = () => {
         </div>
       </div> */}
       <div className="px-4 md:pl-72 pt-10 md:pt-20">
-  <div className="border shadow-sm rounded-lg bg-white h-auto md:h-40 w-full md:w-8/12 mb-6 md:mb-10 p-3">
+  <div className="border shadow-sm rounded-lg bg-white h-auto md:h-24 w-full md:w-8/12 mb-6 md:mb-10 p-3">
     <p className="text-center pt-2 text-2xl md:text-base">
-      Welcome to ChatApp!
+      Welcome to Chat-App!
     </p>
   </div>
 
   {/* Fetch Rooms from API */}
-  <div className="overflow-y-scroll max-h-96 p-3 md:p-5">
+  <div className=" max-h-96 p-3 md:p-5">
     {/* Scrollable container */}
     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
       {rooms.map((room, index) => {

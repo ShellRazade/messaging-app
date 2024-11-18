@@ -1,8 +1,8 @@
-
+import { apiSearch } from '../services/chat';
 import { useState } from 'react'
 
 const Navbar = () => {
-
+const [rooms, setRooms] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const handleSearch = async (event) => {
     const query = event.target.value.toLowerCase();

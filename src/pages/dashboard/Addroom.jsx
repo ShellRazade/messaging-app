@@ -5,7 +5,7 @@ const Addroom = () => {
         <div >
             {/* Addroom */}
             <div className='img pl-80 pt-20'>
-                <div className='border shadow rounded h-4/6 w-3/5 p-6 bg-white'>
+                <div className='border shadow rounded h-3/12 w-3/5 p-6 bg-white'>
                     <p className="text-2xl font-semibold pb-5">Add</p>
 
                     <div>

@@ -45,31 +45,31 @@ const UserLogin = () => {
 
       <button className="text-3xl justify-center p-2"></button>
 
-      <p className="text-4xl text-center mt-10">Login</p>
+      <p className="text-4xl text-center mt-2">Login</p>
 
       <div className="md:flex min-h-screen justify-center items-center align-middle md:mx-44">
-        <div className="py-10 px-5 text-center">
+        <div className=" px-5 text-center">
           <div className="border shadow-lg rounded-lg max-w-md mx-auto h-4/6 place-content-center bg-white ">
-            <form onSubmit={handleSubmit} className="flex flex-col px-5 py-5">
-              <div className="flex gap-2 pb-5">
-                <label htmlFor="email" className="text-xl font-semibold">Email</label>
+            <form onSubmit={handleSubmit} className="flex flex-col px-20 py-16">
+              {/* <div className="flex gap-2 pb-5"> */}
+                <label htmlFor="email" className="text-xl font-semibold pb-5">Email</label>
                 <input
                   type="email"
                   name="email"
                   id="email"
                   placeholder="Email"
-                  className="w-full p-2 border border-gray-300  rounded-md " />
-              </div>
+                  className="w-full p-4 border border-gray-300  rounded-md mb-5" />
+              {/* </div> */}
 
-              <div className="flex gap-2 pb-8">
-                <label htmlFor="password" className="text-xl font-semibold ">Password</label>
+              {/* <div className="flex gap-2 pb-8"> */}
+                <label htmlFor="password" className="text-xl font-semibold pb-5 ">Password</label>
                 <input
                   type="password"
                   name="password"
                   id="password"
                   placeholder="Password"
-                  className="w-full p-2 border border-gray-300 rounded-md" />
-              </div>
+                  className="w-full p-4 border border-gray-300 rounded-md mb-5" />
+              {/* </div> */}
 
               <button type='submit' className="border shadow-md w-max p-2 mb-3 rounded-md hover:bg-slate-100">
                 Login
@@ -83,7 +83,7 @@ const UserLogin = () => {
           </div>
         </div>
 
-        <div className="hidden md:block max-w-md mx-auto">
+        <div className="hidden md:block max-w-md my-auto">
           <img src={login} alt="Login illustration" />
         </div>
       </div>
