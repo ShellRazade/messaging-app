@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { apiUpdateUser } from '../../services/chat';
+import Swal from 'sweetalert2';
 // import { Link, useParams } from 'react-router-dom';
 
 const Settings = () => {
@@ -18,6 +19,12 @@ const Settings = () => {
         
         if (response.status === 200) {
             localStorage.setItem('token', response.data.accessToken)
+
+            Swal.fire({
+                title: "Success!",
+                text: `Registration Successsful`,
+                icon: "success"
+              });
         }
     };
 
@@ -38,8 +45,8 @@ const Settings = () => {
                     <div className='form-popup myForm'>
 
                         <form onSubmit={handleSubmit} className='form-container'>
-                            <label htmlFor="image" className="block text-sm font-medium">Image</label>
-                            <input type="file" className="w-full mb-3" />
+                            {/* <label htmlFor="image" className="block text-sm font-medium">Image</label>
+                            <input type="file" className="w-full mb-3" /> */}
 
                             {/* <label htmlFor="userName" className="block text-sm font-medium">User Name</label>
                             <input type="text" name='userName' placeholder='User name' className="w-full mb-3 p-2 border rounded" /> */}
@@ -53,7 +60,7 @@ const Settings = () => {
                             {/* <label htmlFor="email" className="block text-sm font-medium">Email</label>
                             <input type="email" name='email' placeholder='Email' className="w-full mb-3 p-2 border rounded" /> */}
 
-                            <button type='submit' className='w-full py-2 mt-3 bg-blue-500 text-white rounded hover:bg-blue-600'>Submit</button>
+                            <button type='submit' className='border rounded-md hover:bg-slate-100 shadow-md w-max p-2'>Submit</button>
                         </form>
 
                     </div>
