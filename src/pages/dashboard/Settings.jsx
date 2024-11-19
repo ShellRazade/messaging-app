@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { apiUpdateUser } from '../../services/chat';
 // import { Link, useParams } from 'react-router-dom';
 
 const Settings = () => {
@@ -8,12 +9,12 @@ const Settings = () => {
         event.preventDefault();
         //logic to handle login goes here
         const formData = new FormData(event.target);
-        const userName = formData.get('userName');
+        // const userName = formData.get('userName');
         const firstName = formData.get('firstName');
         const lastName = formData.get('lastName');
-        console.log('userName', userName, 'firstName', firstName, 'lastName', lastName);
+        console.log( 'firstName', firstName, 'lastName', lastName);
 
-        const response = await apiUpdateUser({ userName, firstName, lastName });
+        const response = await apiUpdateUser({  firstName, lastName });
         
         if (response.status === 200) {
             localStorage.setItem('token', response.data.accessToken)
@@ -40,8 +41,8 @@ const Settings = () => {
                             <label htmlFor="image" className="block text-sm font-medium">Image</label>
                             <input type="file" className="w-full mb-3" />
 
-                            <label htmlFor="userName" className="block text-sm font-medium">User Name</label>
-                            <input type="text" name='userName' placeholder='User name' className="w-full mb-3 p-2 border rounded" />
+                            {/* <label htmlFor="userName" className="block text-sm font-medium">User Name</label>
+                            <input type="text" name='userName' placeholder='User name' className="w-full mb-3 p-2 border rounded" /> */}
 
                             <label htmlFor="firstName" className="block text-sm font-medium">First Name</label>
                             <input type="text" name='firstName' placeholder='First Name' className="w-full mb-3 p-2 border rounded" />

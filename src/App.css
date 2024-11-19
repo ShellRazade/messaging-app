@@ -1,3 +1,16 @@
+.land{
+  background-image: url(./assets/images/general.jpg);
+    background-position: fixed;
+    height:70vh;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+    background-color: rgba(0, 0, 0, 0.644);  
+}
+
+
+
+
 .img {
     background-image: url(./assets/images/bg_img.jpg);
     background-position: fixed;

@@ -14,3 +14,6 @@ export const apiGetMessage = async() => apiClient.get('/messages');
 
 //update user details
 export const apiUpdateUser = async (payload) => apiClient.patch('/users/update/id');
+
+//get User Details
+export const apiGetUser  = async (id) => apiClient.get('/users/me')
