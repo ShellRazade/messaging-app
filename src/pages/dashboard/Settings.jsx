@@ -45,11 +45,11 @@ const Settings = () => {
                     <div className='form-popup myForm'>
 
                         <form onSubmit={handleSubmit} className='form-container'>
-                            {/* <label htmlFor="image" className="block text-sm font-medium">Image</label>
-                            <input type="file" className="w-full mb-3" /> */}
+                            <label htmlFor="image" className="block text-sm font-medium">Image</label>
+                            <input type="file" className="w-full mb-3" />
 
-                            {/* <label htmlFor="userName" className="block text-sm font-medium">User Name</label>
-                            <input type="text" name='userName' placeholder='User name' className="w-full mb-3 p-2 border rounded" /> */}
+                            <label htmlFor="userName" className="block text-sm font-medium">User Name</label>
+                            <input type="text" name='userName' placeholder='User name' className="w-full mb-3 p-2 border rounded" />
 
                             <label htmlFor="firstName" className="block text-sm font-medium">First Name</label>
                             <input type="text" name='firstName' placeholder='First Name' className="w-full mb-3 p-2 border rounded" />

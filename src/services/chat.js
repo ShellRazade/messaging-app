@@ -9,6 +9,9 @@ export const apiSearch = async(filter) => await apiClient.get(`/rooms?filter=${f
 //to post chats in chatrooms
 export const apiPostChats = async(payload) => apiClient.post('/messages', payload);
 
+//to post an image in chatroom
+export const apiPostImage = async(payload)=> apiClient.post('/images', payload)
+
 //to get chats in chatrooms
 export const apiGetMessage = async() => apiClient.get('/messages');
 
