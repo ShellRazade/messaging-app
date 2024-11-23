@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { apiUpdateUser } from '../../services/chat';
+import { apiGetUser, apiUpdateUser } from '../../services/chat';
 import Swal from 'sweetalert2';
 import avatar from '../../assets/images/avatar.jpg'
 // import { Link, useParams } from 'react-router-dom';
@@ -9,7 +9,7 @@ const Settings = () => {
     //Update Details
     const handleSubmit = async (event) => {
         event.preventDefault();
-        //logic to handle login goes here
+        //logic to handle update goes here
         const formData = new FormData(event.target);
         // const userName = formData.get('userName');
         const firstName = formData.get('firstName');
@@ -29,18 +29,31 @@ const Settings = () => {
         }
     };
 
+    const [user, setUser] = useState([]);
+    useEffect(() => {
+        const fetchUser = async () => {
+            const response = await apiGetUser();
+            setUser(response.data)
+            console.log(user)
+        };
+        fetchUser();
+    }, []);
+
+
+
     return (
         <div className=''>
             {/* Settings */}
             <div className='place-content-center'>
 
 
-                <div className='block md:flex gap-32 ml-10 '>
+                <div className='block md:flex gap-40 ml-24 '>
                     <div className='justify-center self-center text-center'>
-                        <p className='text-3xl text-[#9078de] font-semibold mb-10'>User Profile</p>
+                        <p className='text-3xl text-[#9078de] font-semibold mb-10 mt-2'>User Profile</p>
                         <span >
-                            <img className='w-40 h-40 rounded-full p-5 border-2 border-white' style={{ width: '300px', height: 'auto' }} src={avatar} alt="avatar" /></span>
-                        <p className='text-xl mt-5'>info@gmail.com</p>
+                            <img className='w-52 h-52 rounded-full p-5 border-2 border-white' style={{ width: '400px', height: 'auto' }} src={avatar} alt="avatar" /></span>
+                        <p className='text-xl mt-5'>{user.userName}</p>
+                        <p className='text-xl mt-5'>{user.email}</p>
                     </div>
 
                     <div>

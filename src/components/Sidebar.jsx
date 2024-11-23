@@ -36,23 +36,23 @@ const Sidebar = () => {
             <div className="h-14 w-full p-2 mx-2 mt-14 pb-2 ">
               <div className="flex flex-col gap-[3rem]">
                 <Link to="chats">
-                  <span className="flex text-xl gap-3 text-white">
+                  <span className="flex text-xl gap-3 text-white font-bold hover:text-black">
                     <IoHomeOutline className="text-2xl" />
                     {!isCollapsed && 'Home'}
                   </span>
                 </Link>
-                <span className="flex text-xl gap-3 text-white">
+                <span className="flex text-xl gap-3 text-white font-bold hover:text-black">
                   <LuCalendarCheck2 className="text-2xl" />
                   {!isCollapsed && 'Calendar'}
                 </span>
                 <Link to="add">
-                  <span className="flex text-xl gap-3 text-white">
+                  <span className="flex text-xl gap-3 text-white font-bold hover:text-black">
                     <IoIosAddCircleOutline className="text-2xl" />
                     {!isCollapsed && 'Add'}
                   </span>
                 </Link>
                 <Link to="settings">
-                  <span className="flex text-xl gap-3 text-white">
+                  <span className="flex text-xl gap-3 text-white font-bold hover:text-black">
                     <HiOutlineCog6Tooth className="text-2xl" />
                     {!isCollapsed && 'Settings'}
                   </span>

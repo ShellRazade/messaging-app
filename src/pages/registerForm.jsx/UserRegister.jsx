@@ -30,7 +30,7 @@ const UserRegister = () => {
       const response = await apiSignup(payload)
       console.log(response.data)
 
-      navigate('/')
+      navigate('/login')
 
       Swal.fire({
         title: "Success!",
