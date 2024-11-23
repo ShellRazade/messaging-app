@@ -30,33 +30,33 @@ const Chats = () => {
          <button className="text-4xl"> <GrSend /></button>
         </div>
       </div> */}
-      <div className="px-4 md:pl-72 pt-10 md:pt-20">
-  <div className="border shadow-sm rounded-lg bg-white h-auto md:h-24 w-full md:w-8/12 mb-6 md:mb-10 p-3">
-    <p className="text-center pt-2 text-2xl md:text-base">
-      Welcome to Chat-App!
-    </p>
-  </div>
+      <div className="px-4 md:pl-20 pt-10 md:pt-20">
+        <div className="border shadow-sm rounded-lg bg-white h-auto md:h-24 w-full md:w-11/12 mb-6 md:mb-10 md:mt-3 p-3">
+          <p className="text-center pt-2 text-xl md:text-3xl">
+            Welcome to Chat-App!
+          </p>
+        </div>
 
-  {/* Fetch Rooms from API */}
-  <div className=" max-h-96 p-3 md:p-5">
-    {/* Scrollable container */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      {rooms.map((room, index) => {
-        return (
-          <Link key={index} to={`/dashboard/chatroom?room=${room.id}`}>
-            <div className="border shadow rounded-lg bg-white p-4 md:p-5">
-              <img src={register2} alt="" className="w-full h-auto rounded" />
-              <p className="pt-3 text-lg md:text-xl text-center">{room.roomName}</p>
-              <p className="pt-2 text-sm md:text-base text-center">Description: {room.description}</p>
-              <p className="pt-4 text-xs md:text-sm">Created At: {room.createdAt}</p>
-              <p className="pt-2 text-xs md:text-sm">Updated At: {room.UpdatedAt}</p>
-            </div>
-          </Link>
-        );
-      })}
-    </div>
-  </div>
-</div>
+        {/* Fetch Rooms from API */}
+        <div className=" max-h-96 p-3 md:p-5">
+          {/* Scrollable container */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            {rooms.map((room, index) => {
+              return (
+                <Link key={index} to={`/dashboard/chatroom?room=${room.id}`}>
+                  <div className="border shadow rounded-lg bg-white p-4 md:p-5">
+                    <img src={register2} alt="" className="w-full h-auto rounded" />
+                    <p className="pt-3 text-lg md:text-xl text-center">{room.roomName}</p>
+                    <p className="pt-2 text-sm md:text-base text-center">Description: {room.description}</p>
+                    <p className="pt-4 text-xs md:text-sm">Created At: {room.createdAt}</p>
+                    <p className="pt-2 text-xs md:text-sm">Updated At: {room.UpdatedAt}</p>
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

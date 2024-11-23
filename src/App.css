@@ -11,7 +11,7 @@
 
 
 
-.img {
+/* .img {
     background-image: url(./assets/images/bg_img.jpg);
     background-position: fixed;
     height:300vh;
@@ -19,7 +19,7 @@
     background-repeat: no-repeat;
     background-attachment:fixed;
     background-color: rgba(0, 0, 0, 0.644);  
-}
+} */
 
 /* * The popup form - hidden by default */ */
 .form-popup {

@@ -5,6 +5,7 @@ import { useSearchParams } from "react-router-dom";
 import { apiGetMessage, apiGetUser, apiPostChats, apiPostImage } from "../../services/chat";
 import { useEffect, useState } from "react";
 
+
 const Chatroom = () => {
   // States for managing messages, user data, and uploaded image URL
   const [searchParams] = useSearchParams();
@@ -72,10 +73,10 @@ const Chatroom = () => {
   }, []);
 
   return (
-    <div className="px-4 md:pl-80 pt-10 md:pt-20 pb-10">
+    <div className="img px-4 md:pl-80 pt-10 md:pt-20 pb-10 overflow-scroll h-96">
       {/* Room Header */}
       <div className="border shadow rounded h-auto md:h-4/12 w-full bg-white md:w-4/5 p-4 md:p-6">
-        <img src="" alt="" className="w-full h-auto rounded mb-4" />
+        <img src='' alt="" className="w-full h-auto rounded mb-4" />
         <p className="text-center">{searchParams.get("room")}</p>
       </div>
 
