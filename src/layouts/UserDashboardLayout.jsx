@@ -10,9 +10,12 @@ const UserDashboardLayout = () => {
     <div>
       {/* UserDashboardLayout */}
 
-      {/* <Navbar /> */}
+
       <div className='flex'>
-        <Sidebar />
+        <div className='flex'>
+          <Sidebar />
+          {/* <Navbar /> */}
+        </div>
 
         <Outlet />
 

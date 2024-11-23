@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { apiUpdateUser } from '../../services/chat';
 import Swal from 'sweetalert2';
+import avatar from '../../assets/images/avatar.jpg'
 // import { Link, useParams } from 'react-router-dom';
 
 const Settings = () => {
@@ -13,10 +14,10 @@ const Settings = () => {
         // const userName = formData.get('userName');
         const firstName = formData.get('firstName');
         const lastName = formData.get('lastName');
-        console.log( 'firstName', firstName, 'lastName', lastName);
+        console.log('firstName', firstName, 'lastName', lastName);
 
-        const response = await apiUpdateUser({  firstName, lastName });
-        
+        const response = await apiUpdateUser({ firstName, lastName });
+
         if (response.status === 200) {
             localStorage.setItem('token', response.data.accessToken)
 
@@ -24,46 +25,43 @@ const Settings = () => {
                 title: "Success!",
                 text: `Registration Successsful`,
                 icon: "success"
-              });
+            });
         }
     };
 
     return (
-        <div>
+        <div className=''>
             {/* Settings */}
+            <div className='place-content-center'>
 
-            <div className='img p-5 md:pl-80 md:pt-20'>
-                <div className='border shadow rounded h-auto md:h-11/12 w-full md:w-3/5 p-6 bg-white'>
-                    <p className='text-2xl md:text-3xl pb-5'>Profile</p>
-                    <span className='border-2 shadow-sm rounded-full w-12 h-12 mb-4 p-2 inline-block text-center'>
-                        avtr
-                    </span>
-                    <p className='text-lg md:text-xl pt-3'>John Doe</p>
-                    <p className='text-sm md:text-base'>info@gmail.com</p>
 
-                    <p className="text-2xl md:text-3xl my-5 text-center">Change Details</p>
-                    <div className='form-popup myForm'>
+                <div className='block md:flex gap-32 ml-10 '>
+                    <div className='justify-center self-center text-center'>
+                        <p className='text-3xl text-[#9078de] font-semibold mb-10'>User Profile</p>
+                        <span >
+                            <img className='w-40 h-40 rounded-full p-5 border-2 border-white' style={{ width: '300px', height: 'auto' }} src={avatar} alt="avatar" /></span>
+                        <p className='text-xl mt-5'>info@gmail.com</p>
+                    </div>
 
-                        <form onSubmit={handleSubmit} className='form-container'>
+                    <div>
+                        <p className='text-3xl text-[#9078de] font-semibold mb-10 mt-10'>Change Details</p>
+                        <form action="" onSubmit={handleSubmit}>
                             <label htmlFor="image" className="block text-sm font-medium">Image</label>
                             <input type="file" className="w-full mb-3" />
 
-                            <label htmlFor="userName" className="block text-sm font-medium">User Name</label>
-                            <input type="text" name='userName' placeholder='User name' className="w-full mb-3 p-2 border rounded" />
+                            <label htmlFor="userName" className="block text-xl font-medium">User Name</label>
+                            <input type="text" name='userName' placeholder='User name' className="w-full mb-3 p-4 border rounded" />
 
-                            <label htmlFor="firstName" className="block text-sm font-medium">First Name</label>
-                            <input type="text" name='firstName' placeholder='First Name' className="w-full mb-3 p-2 border rounded" />
+                            <label htmlFor="firstName" className="block text-xl font-medium">First Name</label>
+                            <input type="text" name='firstName' placeholder='First Name' className="w-full mb-3 p-4 border rounded" />
 
-                            <label htmlFor="lastName" className="block text-sm font-medium">Last Name</label>
-                            <input type="text" name='lastName' placeholder='Last Name' className="w-full mb-3 p-2 border rounded" />
-
-                            {/* <label htmlFor="email" className="block text-sm font-medium">Email</label>
-                            <input type="email" name='email' placeholder='Email' className="w-full mb-3 p-2 border rounded" /> */}
+                            <label htmlFor="lastName" className="block text-xl font-medium">Last Name</label>
+                            <input type="text" name='lastName' placeholder='Last Name' className="w-full mb-3 p-4 border rounded" />
 
                             <button type='submit' className='border rounded-md hover:bg-slate-100 shadow-md w-max p-2'>Submit</button>
                         </form>
-
                     </div>
+
                 </div>
             </div>
 

@@ -4,6 +4,7 @@ import Users from '../../components/Users';
 import { useSearchParams } from "react-router-dom";
 import { apiGetMessage, apiGetUser, apiPostChats, apiPostImage } from "../../services/chat";
 import { useEffect, useState } from "react";
+import avatar from '../../assets/images/avatar.jpg'
 
 
 const Chatroom = () => {
@@ -73,9 +74,10 @@ const Chatroom = () => {
   }, []);
 
   return (
-    <div className="img px-4 md:pl-80 pt-10 md:pt-20 pb-10 overflow-scroll h-96">
+    <div className="img px-4 md:pl-80 pt-10 md:pt-20 pb-10 ">
+     
       {/* Room Header */}
-      <div className="border shadow rounded h-auto md:h-4/12 w-full bg-white md:w-4/5 p-4 md:p-6">
+      <div className="border shadow rounded h-auto md:h-4/12 w-full bg-white md:w-10/12 p-4 md:p-6">
         <img src='' alt="" className="w-full h-auto rounded mb-4" />
         <p className="text-center">{searchParams.get("room")}</p>
       </div>
@@ -83,11 +85,15 @@ const Chatroom = () => {
       {/* Messages and User Section */}
       <div className="flex flex-col md:flex-row gap-6 md:gap-12 mt-6">
         {/* Messages Section */}
-        <div className="border shadow rounded h-auto md:h-4/6 w-full md:w-3/5 p-5 md:p-10 bg-white">
+        <div className="border shadow rounded h-auto md:h-4/6 w-full md:w-10/12 p-5 md:p-10 bg-white">
           {messages.map((message, index) => (
             <div key={index}>
               <div className="flex items-center gap-3 p-3">
-                <span className="w-12 h-12 border shadow-sm rounded-full p-4">avtr</span>
+              
+                <span >
+                  <img className='w-10 h-10 border shadow-sm rounded-full  border-white'  src={avatar} alt="avatar" /></span>
+
+                <p className='text-sm mt-5'>info@gmail.com</p>
                 <p className="mt-2 md:mt-4 text-sm md:text-base">
                   {user?.user?.userName || 'John Doe'}
                 </p>
