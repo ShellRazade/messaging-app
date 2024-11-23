@@ -8,10 +8,10 @@ const Addroom = () => {
         event.preventDefault();
         //logic to add a room goes here
         const formData = new FormData(event.target);
-        const name = formData.get('name');
+        const roomName = formData.get('roomName');
         const description = formData.get('description');
-        console.log(name, 'name', description, 'description');
-        const response = await apiAddRoom({ name, description });
+        console.log(roomName, 'roomName', description, 'description');
+        const response = await apiAddRoom({ roomName, description });
 
         if (response.status === 200) {
             localStorage.setItem('token', response.data.accessToken)
@@ -28,13 +28,13 @@ const Addroom = () => {
         <div >
             {/* Addroom */}
             <div>
-                <div className="pt-16 pl-14 ">
-                    <p className="text-3xl text-center font-semibold pb-5">Create A Room</p>
+                <div className="pt-16 pl-20 ">
+                    <p className="text-3xl text-center font-semibold text-[#9078de] pb-5">Create A Room</p>
                     <div className='border shadow rounded h-3/12 w-10/12 p-6 flex gap-10 bg-white '>
 
                         <form action="" onSubmit={handleSubmit} className="justify-center flex flex-col p-6">
                             <label htmlFor="" className="text-xl">Name</label>
-                            <input type="text" name="name" className="border shadow p-2 my-2 rounded-md w-full" />
+                            <input type="text" name="roomName" className="border shadow p-2 my-2 rounded-md w-full" />
                             <label htmlFor="" className="text-xl">Description</label>
                             <input type="text" name="description" className="border shadow p-2 my-2 rounded-md w-80 h-40" />
                             <div className="flex ">

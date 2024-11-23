@@ -74,24 +74,20 @@ const Chatroom = () => {
   }, []);
 
   return (
-    <div className="img px-4 md:pl-80 pt-10 md:pt-20 pb-10 ">
-     
-      {/* Room Header */}
-      <div className="border shadow rounded h-auto md:h-4/12 w-full bg-white md:w-10/12 p-4 md:p-6">
-        <img src='' alt="" className="w-full h-auto rounded mb-4" />
-        <p className="text-center">{searchParams.get("room")}</p>
-      </div>
+    <div>
+      <div className=" ">
+        <div className="border shadow h-1/5 w-11/12 p-5">
+          <p className="text-center">{searchParams.get("room")}</p>
+        </div>
 
-      {/* Messages and User Section */}
-      <div className="flex flex-col md:flex-row gap-6 md:gap-12 mt-6">
-        {/* Messages Section */}
-        <div className="border shadow rounded h-auto md:h-4/6 w-full md:w-10/12 p-5 md:p-10 bg-white">
+        <div>
           {messages.map((message, index) => (
             <div key={index}>
               <div className="flex items-center gap-3 p-3">
-              
-                <span >
-                  <img className='w-10 h-10 border shadow-sm rounded-full  border-white'  src={avatar} alt="avatar" /></span>
+
+                <span>
+                  <img className='w-10 h-10 border shadow-sm rounded-full  border-white' src={avatar}
+                    alt="avatar" /></span>
 
                 <p className='text-sm mt-5'>info@gmail.com</p>
                 <p className="mt-2 md:mt-4 text-sm md:text-base">
@@ -104,38 +100,25 @@ const Chatroom = () => {
             </div>
           ))}
           {imageUrl && <img src={imageUrl} alt="Uploaded" className="my-4 rounded" />}
-
-          {/* Message Input Form */}
-          <form onSubmit={handleSubmit} className="flex gap-2 mt-3">
-            <div className="relative text-2xl">
-              <IoImageOutline />
-              <input
-                type="file"
-                name="file"
-                onChange={handleImageUpload}
-                className="absolute inset-0 opacity-0 cursor-pointer"
-              />
-            </div>
-            <input
-              type="text"
-              name="content"
-              placeholder="Comment here"
-              className="p-3 bg-slate-50 rounded border border-gray-300 w-full md:w-4/5"
-            />
-            <button type="submit" className="text-2xl">
-              <LuSendHorizonal />
-            </button>
-          </form>
         </div>
 
-        {/* Users Component (uncomment if needed) */}
-        {/* 
-        <div className="w-full md:w-1/5">
-          <Users />
-        </div> 
-        */}
+{/* Message Input Form */}
+<form onSubmit={handleSubmit} className="flex gap-2 mt-3">
+                <div className="relative text-2xl">
+                    <IoImageOutline />
+                    <input type="file" name="file" onChange={handleImageUpload}
+                        className="absolute inset-0 opacity-0 cursor-pointer" />
+                </div>
+                <input type="text" name="content" placeholder="Comment here"
+                    className="p-3 bg-slate-50 rounded border border-gray-300 w-full md:w-4/5" />
+                <button type="submit" className="text-2xl">
+                    <LuSendHorizonal />
+                </button>
+            </form>
+
       </div>
     </div>
+
   );
 };
 

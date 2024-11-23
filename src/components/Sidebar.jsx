@@ -19,7 +19,7 @@ const Sidebar = () => {
   return (
     <div> {/* Sidebar */}
 
-      <div>
+      <div className="bg-[#eff2f7]  ">
         <div className="flex gap-3 py-5 pb-14 ">
           <button onClick={toggleCollapse}>
             <GiHamburgerMenu className="text-4xl ml-2" />

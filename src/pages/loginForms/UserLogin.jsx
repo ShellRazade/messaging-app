@@ -41,7 +41,7 @@ const UserLogin = () => {
 
   return (
 
-    <div className="min-h-screen bg-white">
+    <div className="img min-h-screen bg-white">
 
       <button className="text-3xl justify-center p-2"></button>
 

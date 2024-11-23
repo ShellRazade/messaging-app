@@ -21,7 +21,7 @@ const Chats = () => {
 
 
   return (
-    <div className='img '>
+    <div className=''>
       {/* Chats */}
 
       {/* <div className='justify-self-center pt-[40%]'>
@@ -30,7 +30,7 @@ const Chats = () => {
          <button className="text-4xl"> <GrSend /></button>
         </div>
       </div> */}
-      <div className="px-4 md:pl-20 pt-10 md:pt-20">
+      <div className="px-4 md:pl-28 pt-10 md:pt-20">
         <div className="border shadow-sm rounded-lg bg-white h-auto md:h-24 w-full md:w-11/12 mb-6 md:mb-10 md:mt-3 p-3">
           <p className="text-center pt-2 text-xl md:text-3xl">
             Welcome to Chat-App!

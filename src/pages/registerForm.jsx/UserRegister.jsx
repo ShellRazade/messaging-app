@@ -57,16 +57,16 @@ const UserRegister = () => {
 
 
   return (
-    <div>
+    <div className='img'>
       {/* UserRegister */}
 
-      <p className='text-4xl text-center mt-10'>Register</p>
+      <p className='text-4xl text-center pt-10'>Register</p>
 
       <div className='md:flex min-h-screen justify-center items-center align-middle md:mx-52'>
 
         <div className='flex '>
 
-          <form onSubmit={handleSubmit} className='border shadow-lg rounded-lg h-5/6 max-w-md mx-auto p-5'>
+          <form onSubmit={handleSubmit} className='border shadow-lg rounded-lg h-5/6 max-w-md mx-auto p-10'>
           <div className='flex gap-2 pb-5'>
               <label htmlFor="" className='text-xl font-semibold '>User Name</label>
               <input type="text" name='userName' placeholder='User Name' className='border border-gray-300 rounded-md p-3' required />
@@ -101,7 +101,7 @@ const UserRegister = () => {
           </form>
 
           <div className='max-w-md mx-auto'>
-            <img src={register1} alt="" />
+            <img style={{ width: '700px', height: 'auto' }} src={register1} alt="register" />
           </div>
 
         </div>
