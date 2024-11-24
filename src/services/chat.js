@@ -16,7 +16,7 @@ export const apiPostChats = async(payload) => apiClient.post('/messages', payloa
 export const apiPostImage = async(payload)=> apiClient.post('/images', payload)
 
 //to get chats in chatrooms
-export const apiGetMessage = async() => apiClient.get('/messages');
+export const apiGetMessage = async(filter) => apiClient.get(`/messages?filter=${filter}`);
 
 //update user details
 export const apiUpdateUser = async (payload) => apiClient.patch('/users/update');

@@ -28,7 +28,7 @@ const Addroom = () => {
         <div >
             {/* Addroom */}
             <div>
-                <div className="pt-16 pl-20 ">
+                <div className="mt-16 pl-20 ">
                     <p className="text-3xl text-center font-semibold text-[#9078de] pb-5">Create A Room</p>
                     <div className='border shadow rounded h-3/12 w-10/12 p-6 flex gap-10 bg-white '>
 

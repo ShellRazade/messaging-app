@@ -2,14 +2,11 @@ import { apiSearch } from '../services/chat';
 import { useState } from 'react'
 import { CiSearch } from "react-icons/ci";
 
-const Navbar = () => {
-const [rooms, setRooms] = useState([]);
+const Navbar = ({setRooms}) => {
   const [searchQuery, setSearchQuery] = useState("");
   const handleSearch = async (event) => {
-    const query = event.target.value.toLowerCase();
-    setSearchQuery(query);
     const filter = JSON.stringify({
-      name: { "$regex": query, "$options": "i" }
+      roomName: { "$regex": searchQuery, "$options": "i" }
     });
     const response = await apiSearch(filter);
     setRooms(response.data);
@@ -19,10 +16,11 @@ const [rooms, setRooms] = useState([]);
   return (
     <div> {/* Navbar */}
       <div className='justify center items-center'>
-      <div>
-        <input type="text" value='' className='bg-black ml w-4/12 p-3 rounded-full' />
-        <button className=""><CiSearch /></button>
+      <div className='flex gap-4 mt-3'>
+        <input value={searchQuery} onChange={event=>setSearchQuery(event.target.value)} className='bg-slate-50 border w-7/12 p-3 rounded-full' />
+        <button className="text-4xl" onClick={handleSearch}><CiSearch /></button>
       </div>
+
       </div>
 
     </div>

@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { apiGetRooms } from "../../services/chat";
 import { Link } from "react-router-dom";
 import register2 from '../../assets/images/register2.png'
+import Navbar from "../../components/Navbar";
 
 const Chats = () => {
 
@@ -23,14 +24,14 @@ const Chats = () => {
   return (
     <div className=''>
       {/* Chats */}
-
+      <Navbar setRooms={setRooms} />
       {/* <div className='justify-self-center pt-[40%]'>
         <div className="flex gap-2">
           <input type="text" className='p-3 w-96 rounded-xl border shadow-lg' />
          <button className="text-4xl"> <GrSend /></button>
         </div>
       </div> */}
-      <div className="px-4 md:pl-28 pt-10 md:pt-20">
+      <div className="px-4 md:pl-28 pt-10 md:pt-8">
         <div className="border shadow-sm rounded-lg bg-white h-auto md:h-24 w-full md:w-11/12 mb-6 md:mb-10 md:mt-3 p-3">
           <p className="text-center pt-2 text-xl md:text-3xl">
             Welcome to Chat-App!

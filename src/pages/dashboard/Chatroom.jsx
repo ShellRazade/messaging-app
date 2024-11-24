@@ -11,7 +11,6 @@ const Chatroom = () => {
   // States for managing messages, user data, and uploaded image URL
   const [searchParams] = useSearchParams();
   const [messages, setMessages] = useState([]);
-  const [user, setUser] = useState([]);
   const [imageUrl, setImageUrl] = useState('');
 
   // Handle search query change
@@ -50,27 +49,20 @@ const Chatroom = () => {
 
   // Fetch messages from the API
   const fetchMessages = async () => {
+    const filter = JSON.stringify({
+      room: searchParams.get('room')
+    });
     try {
-      const response = await apiGetMessage();
+      const response = await apiGetMessage(filter);
       setMessages(response.data);
     } catch (error) {
       console.error(error);
     }
   };
 
-  // Fetch user from API
-  const fetchUser = async () => {
-    try {
-      const response = await apiGetUser();
-      setUser(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
 
   useEffect(() => {
     fetchMessages();
-    fetchUser();
   }, []);
 
   return (
@@ -89,9 +81,9 @@ const Chatroom = () => {
                   <img className='w-10 h-10 border shadow-sm rounded-full  border-white' src={avatar}
                     alt="avatar" /></span>
 
-                <p className='text-sm mt-5'>info@gmail.com</p>
+                <p className='text-sm mt-5'> {message?.user?.email || 'John@gmail.com'}</p>
                 <p className="mt-2 md:mt-4 text-sm md:text-base">
-                  {user?.user?.userName || 'John Doe'}
+                  {message?.user?.userName || 'John Doe'}
                 </p>
               </div>
               <p className="mt-4 text-sm md:text-base pb-5 border-b-[1px]">
@@ -102,19 +94,19 @@ const Chatroom = () => {
           {imageUrl && <img src={imageUrl} alt="Uploaded" className="my-4 rounded" />}
         </div>
 
-{/* Message Input Form */}
-<form onSubmit={handleSubmit} className="flex gap-2 mt-3">
-                <div className="relative text-2xl">
-                    <IoImageOutline />
-                    <input type="file" name="file" onChange={handleImageUpload}
-                        className="absolute inset-0 opacity-0 cursor-pointer" />
-                </div>
-                <input type="text" name="content" placeholder="Comment here"
-                    className="p-3 bg-slate-50 rounded border border-gray-300 w-full md:w-4/5" />
-                <button type="submit" className="text-2xl">
-                    <LuSendHorizonal />
-                </button>
-            </form>
+        {/* Message Input Form */}
+        <form onSubmit={handleSubmit} className="flex gap-2 mt-3">
+          <div className="relative text-2xl">
+            <IoImageOutline />
+            <input type="file" name="file" onChange={handleImageUpload}
+              className="absolute inset-0 opacity-0 cursor-pointer" />
+          </div>
+          <input type="text" name="content" placeholder="Comment here"
+            className="p-3 bg-slate-50 rounded border border-gray-300 w-full md:w-4/5" />
+          <button type="submit" className="text-2xl">
+            <LuSendHorizonal />
+          </button>
+        </form>
 
       </div>
     </div>
