@@ -19,7 +19,7 @@ export const apiPostImage = async(payload)=> apiClient.post('/images', payload)
 export const apiGetMessage = async(filter) => apiClient.get(`/messages?filter=${filter}`);
 
 //update user details
-export const apiUpdateUser = async (payload) => apiClient.patch('/users/update');
+export const apiUpdateUser = async (payload) => apiClient.patch('/users/update',payload);
 
 //get User Details
 export const apiGetUser  = async (id) => apiClient.get('/users/me')

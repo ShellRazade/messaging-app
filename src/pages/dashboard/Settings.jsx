@@ -16,7 +16,7 @@ const Settings = () => {
         const lastName = formData.get('lastName');
         console.log('firstName', firstName, 'lastName', lastName);
 
-        const response = await apiUpdateUser({ firstName, lastName });
+        const response = await apiUpdateUser(formData);
 
         if (response.status === 200) {
             localStorage.setItem('token', response.data.accessToken)
@@ -47,12 +47,12 @@ const Settings = () => {
             <div className='place-content-center'>
 
 
-                <div className='block md:flex gap-40 ml-24 '>
+                <div className='block md:flex gap-40 ml-32 '>
                     <div className='justify-center self-center text-center'>
                         <p className='text-3xl text-[#9078de] font-semibold mb-10 mt-2'>User Profile</p>
                         <span >
                             <img className='w-52 h-52 rounded-full p-5 border-2 border-white' style={{ width: '400px', height: 'auto' }} src={avatar} alt="avatar" /></span>
-                        <p className='text-xl mt-5'>{user.userName}</p>
+                        <p className='text-xl mt-5'>{user.firstName}</p>
                         <p className='text-xl mt-5'>{user.email}</p>
                     </div>
 
@@ -71,7 +71,7 @@ const Settings = () => {
                             <label htmlFor="lastName" className="block text-xl font-medium">Last Name</label>
                             <input type="text" name='lastName' placeholder='Last Name' className="w-full mb-3 p-4 border rounded" />
 
-                            <button type='submit' className='border rounded-md hover:bg-slate-100 shadow-md w-max p-2'>Submit</button>
+                            <button type='submit' className='border rounded-md hover:bg-slate-100 shadow-md w-max mb-5 p-2'>Submit</button>
                         </form>
                     </div>
 

@@ -15,10 +15,10 @@ const Navbar = ({setRooms}) => {
 
   return (
     <div> {/* Navbar */}
-      <div className='justify center items-center'>
-      <div className='flex gap-4 mt-3'>
+      <div className='justify center items-center ml-16'>
+      <div className='flex gap-2 mt-3 justify-end'>
         <input value={searchQuery} onChange={event=>setSearchQuery(event.target.value)} className='bg-slate-50 border w-7/12 p-3 rounded-full' />
-        <button className="text-4xl" onClick={handleSearch}><CiSearch /></button>
+        <button className="text-4xl mr-3" onClick={handleSearch}><CiSearch /></button>
       </div>
 
       </div>

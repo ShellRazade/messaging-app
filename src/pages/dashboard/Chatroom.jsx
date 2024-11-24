@@ -30,22 +30,21 @@ const Chatroom = () => {
   };
 
   // Image upload preview and submission
-  const handleImageUpload = (e) => {
+  const handleImageUpload = async (e) => {
     const file = e.target.files[0];
     const imageUrl = URL.createObjectURL(file);
     setImageUrl(imageUrl);
-  };
-
-  const handleImageSubmit = async (event) => {
-    event.preventDefault();
     try {
-      const formData = new FormData(event.target);
-      await apiPostImage({ /* add necessary payload data here */ });
+      const formData = new FormData();
+      formData.append('image', file);
+      formData.append('room', searchParams.get('room'));
+      await apiPostImage(formData);
       // Optionally: Refresh messages or image after upload
     } catch (error) {
       console.log(error);
     }
   };
+
 
   // Fetch messages from the API
   const fetchMessages = async () => {
@@ -67,8 +66,8 @@ const Chatroom = () => {
 
   return (
     <div>
-      <div className=" ">
-        <div className="border shadow h-1/5 w-11/12 p-5">
+      <div className="mt-16 ml-16 pl-16">
+        <div className="border shadow h-1/5 w-[60vw] p-10 mb-7">
           <p className="text-center">{searchParams.get("room")}</p>
         </div>
 
@@ -78,17 +77,17 @@ const Chatroom = () => {
               <div className="flex items-center gap-3 p-3">
 
                 <span>
-                  <img className='w-10 h-10 border shadow-sm rounded-full  border-white' src={avatar}
+                  <img className='w-16 h-16 border shadow-sm rounded-full border-white' src={avatar}
                     alt="avatar" /></span>
-
                 <p className='text-sm mt-5'> {message?.user?.email || 'John@gmail.com'}</p>
                 <p className="mt-2 md:mt-4 text-sm md:text-base">
                   {message?.user?.userName || 'John Doe'}
                 </p>
+
               </div>
-              <p className="mt-4 text-sm md:text-base pb-5 border-b-[1px]">
+              {message.content ? <p className="mt-4 text-sm md:text-base pb-5 border-b-[1px]">
                 {message.content}
-              </p>
+              </p> : <img src={`https://savefiles.org/${message.image}?shareable_link=532`} className="w-3/12 h-2/12" />}
             </div>
           ))}
           {imageUrl && <img src={imageUrl} alt="Uploaded" className="my-4 rounded" />}
@@ -99,10 +98,10 @@ const Chatroom = () => {
           <div className="relative text-2xl">
             <IoImageOutline />
             <input type="file" name="file" onChange={handleImageUpload}
-              className="absolute inset-0 opacity-0 cursor-pointer" />
+              className="absolute inset-0 opacity-0 cursor-pointer justify-center" />
           </div>
           <input type="text" name="content" placeholder="Comment here"
-            className="p-3 bg-slate-50 rounded border border-gray-300 w-full md:w-4/5" />
+            className="p-3 bg-slate-50 rounded border border-gray-300 mb-3 w-full md:w-9/12" />
           <button type="submit" className="text-2xl">
             <LuSendHorizonal />
           </button>

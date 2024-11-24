@@ -66,7 +66,7 @@ const UserRegister = () => {
 
         <div className='flex '>
 
-          <form onSubmit={handleSubmit} className='border shadow-lg rounded-lg h-5/6 max-w-md mx-auto p-10'>
+          <form onSubmit={handleSubmit} className='border shadow-lg rounded-lg bg-white h-5/6 max-w-md mx-auto p-10'>
           <div className='flex gap-2 pb-5'>
               <label htmlFor="" className='text-xl font-semibold '>User Name</label>
               <input type="text" name='userName' placeholder='User Name' className='border border-gray-300 rounded-md p-3' required />
