@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react'
-import { apiGetUser, apiUpdateUser } from '../../services/chat';
+import React from 'react'
+import { apiUpdateUser } from '../../services/chat';
 import Swal from 'sweetalert2';
 import avatar from '../../assets/images/avatar.jpg'
+import { useUser } from '../../hooks/user';
 // import { Link, useParams } from 'react-router-dom';
 
 const Settings = () => {
+    const { user, refresh } = useUser();
 
     //Update Details
     const handleSubmit = async (event) => {
@@ -19,27 +21,16 @@ const Settings = () => {
         const response = await apiUpdateUser(formData);
 
         if (response.status === 200) {
-            localStorage.setItem('token', response.data.accessToken)
+            // localStorage.setItem('token', response.data.accessToken)
 
             Swal.fire({
                 title: "Success!",
                 text: `Registration Successsful`,
                 icon: "success"
             });
+            refresh();
         }
     };
-
-    const [user, setUser] = useState([]);
-    useEffect(() => {
-        const fetchUser = async () => {
-            const response = await apiGetUser();
-            setUser(response.data)
-            console.log(user)
-        };
-        fetchUser();
-    }, []);
-
-
 
     return (
         <div className=''>
@@ -52,8 +43,8 @@ const Settings = () => {
                         <p className='text-3xl text-[#9078de] font-semibold mb-10 mt-2'>User Profile</p>
                         <span >
                             <img className='w-52 h-52 rounded-full p-5 border-2 border-white' style={{ width: '400px', height: 'auto' }} src={avatar} alt="avatar" /></span>
-                        <p className='text-xl mt-5'>{user.firstName}</p>
-                        <p className='text-xl mt-5'>{user.email}</p>
+                        <p className='text-xl mt-5'>{user?.firstName} {user?.lastName}</p>
+                        <p className='text-xl mt-5'>{user?.email}</p>
                     </div>
 
                     <div>

@@ -1,17 +1,24 @@
 import { LuSendHorizonal } from "react-icons/lu";
 import { IoImageOutline } from "react-icons/io5";
-import Users from '../../components/Users';
 import { useSearchParams } from "react-router-dom";
-import { apiGetMessage, apiGetUser, apiPostChats, apiPostImage } from "../../services/chat";
-import { useEffect, useState } from "react";
+import { apiPostChats, apiPostImage } from "../../services/chat";
+import { useState } from "react";
 import avatar from '../../assets/images/avatar.jpg'
+import useSWR from "swr";
+import { fetcher } from "../../services/config";
 
 
 const Chatroom = () => {
   // States for managing messages, user data, and uploaded image URL
   const [searchParams] = useSearchParams();
-  const [messages, setMessages] = useState([]);
   const [imageUrl, setImageUrl] = useState('');
+
+  // Filter for SWR endpoint
+  const filter = JSON.stringify({
+    room: searchParams.get('room')
+  });
+  // Fetch with SWR
+  const { data, error, isLoading, mutate } = useSWR(`/messages?filter=${filter}`, fetcher);
 
   // Handle search query change
   const handleSubmit = async (event) => {
@@ -23,7 +30,7 @@ const Chatroom = () => {
         room: searchParams.get('room')
       });
       // Optionally: Refresh messages after posting a new one
-      fetchMessages();
+      mutate();
     } catch (error) {
       console.log(error);
     }
@@ -40,29 +47,11 @@ const Chatroom = () => {
       formData.append('room', searchParams.get('room'));
       await apiPostImage(formData);
       // Optionally: Refresh messages or image after upload
+      mutate();
     } catch (error) {
       console.log(error);
     }
   };
-
-
-  // Fetch messages from the API
-  const fetchMessages = async () => {
-    const filter = JSON.stringify({
-      room: searchParams.get('room')
-    });
-    try {
-      const response = await apiGetMessage(filter);
-      setMessages(response.data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-
-  useEffect(() => {
-    fetchMessages();
-  }, []);
 
   return (
     <div>
@@ -72,24 +61,26 @@ const Chatroom = () => {
         </div>
 
         <div>
-          {messages.map((message, index) => (
-            <div key={index}>
-              <div className="flex items-center gap-3 p-3">
+          {isLoading ? <p>Loading messages...</p> :
+            error ? <p>Failed to fetch messages...</p> :
+              data.map((message, index) => (
+                <div key={index}>
+                  <div className="flex items-center gap-3 p-3">
 
-                <span>
-                  <img className='w-16 h-16 border shadow-sm rounded-full border-white' src={avatar}
-                    alt="avatar" /></span>
-                <p className='text-sm mt-5'> {message?.user?.email || 'John@gmail.com'}</p>
-                <p className="mt-2 md:mt-4 text-sm md:text-base">
-                  {message?.user?.userName || 'John Doe'}
-                </p>
+                    <span>
+                      <img className='w-16 h-16 border shadow-sm rounded-full border-white' src={avatar}
+                        alt="avatar" /></span>
+                    <p className='text-sm mt-5'> {message?.user?.email || 'John@gmail.com'}</p>
+                    <p className="mt-2 md:mt-4 text-sm md:text-base">
+                      {message?.user?.userName || 'John Doe'}
+                    </p>
 
-              </div>
-              {message.content ? <p className="mt-4 text-sm md:text-base pb-5 border-b-[1px]">
-                {message.content}
-              </p> : <img src={`https://savefiles.org/${message.image}?shareable_link=532`} className="w-3/12 h-2/12" />}
-            </div>
-          ))}
+                  </div>
+                  {message.content ? <p className="mt-4 text-sm md:text-base pb-5 border-b-[1px]">
+                    {message.content}
+                  </p> : <img src={`https://savefiles.org/${message.image}?shareable_link=532`} className="w-3/12 h-2/12" />}
+                </div>
+              ))}
           {imageUrl && <img src={imageUrl} alt="Uploaded" className="my-4 rounded" />}
         </div>
 
